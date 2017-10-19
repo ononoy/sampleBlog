@@ -7,7 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class BlogRealm: Object {
+    
+    
+    dynamic var title: String?
+    dynamic var content: String?
+    dynamic var createdAt: Date?
+    
+    
 
 }

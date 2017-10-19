@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dwu-Z1-m5M">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--sample Blog-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TopViewController" customModule="sampleBlog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,172 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hEa-mE-KF3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="fdd-J2-wEr"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Iyy-Ub-wqQ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hEa-mE-KF3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9dE-Ih-g8I"/>
+                            <constraint firstAttribute="bottom" secondItem="hEa-mE-KF3" secondAttribute="bottom" id="LGK-32-Ira"/>
+                            <constraint firstAttribute="trailing" secondItem="hEa-mE-KF3" secondAttribute="trailing" id="XfJ-g6-NxF"/>
+                            <constraint firstItem="hEa-mE-KF3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tpH-hE-YZT"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="sample Blog" id="Gvj-nL-dzk">
+                        <barButtonItem key="rightBarButtonItem" title="投稿" id="5GO-Vy-jLh">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="7Ui-f9-Prg" kind="presentation" id="UJg-DY-QYJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="hEa-mE-KF3" id="tDq-Ak-9it"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1048.8" y="37.331334332833585"/>
+        </scene>
+        <!--Blogを作成する-->
+        <scene sceneID="Tqf-yN-oS5">
+            <objects>
+                <viewController id="483-ee-7BN" customClass="CreateViewController" customModule="sampleBlog" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZYq-ju-F4u"/>
+                        <viewControllerLayoutGuide type="bottom" id="MCt-Ld-1uj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zlv-GR-fgb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ブログタイトルを設定する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ8-nf-QY9">
+                                <rect key="frame" x="15" y="79" width="208" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="0uX-AU-xzG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ブログの内容を書く" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlt-0O-vh0">
+                                <rect key="frame" x="15" y="159" width="156" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="16Z-Wu-YOL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ブログのタイトル" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yd1-Nb-XTJ">
+                                <rect key="frame" x="15" y="114" width="345" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hXJ-Vb-Su3"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OaS-BL-0Pi">
+                                <rect key="frame" x="15" y="194" width="345" height="200"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="vp3-vJ-v4Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEX-sC-FHs">
+                                <rect key="frame" x="15" y="424" width="345" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gh1-oa-jDr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="ブログを投稿する">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedCreateBlogBtn:" destination="483-ee-7BN" eventType="touchUpInside" id="um9-IZ-Aio"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eEX-sC-FHs" secondAttribute="trailing" constant="15" id="7Hv-lW-y1A"/>
+                            <constraint firstItem="yd1-Nb-XTJ" firstAttribute="top" secondItem="dZ8-nf-QY9" secondAttribute="bottom" constant="15" id="7sF-eq-GZi"/>
+                            <constraint firstItem="eEX-sC-FHs" firstAttribute="leading" secondItem="Zlv-GR-fgb" secondAttribute="leading" constant="15" id="ReG-jj-Eki"/>
+                            <constraint firstItem="OaS-BL-0Pi" firstAttribute="leading" secondItem="Zlv-GR-fgb" secondAttribute="leading" constant="15" id="Xsb-KA-aIN"/>
+                            <constraint firstItem="yd1-Nb-XTJ" firstAttribute="leading" secondItem="Zlv-GR-fgb" secondAttribute="leading" constant="15" id="ZNM-Ks-Bp3"/>
+                            <constraint firstItem="eEX-sC-FHs" firstAttribute="top" secondItem="OaS-BL-0Pi" secondAttribute="bottom" constant="30" id="eN4-fh-RhF"/>
+                            <constraint firstAttribute="trailing" secondItem="OaS-BL-0Pi" secondAttribute="trailing" constant="15" id="ea8-LP-Pfx"/>
+                            <constraint firstItem="Qlt-0O-vh0" firstAttribute="top" secondItem="yd1-Nb-XTJ" secondAttribute="bottom" constant="15" id="hub-lf-ioi"/>
+                            <constraint firstItem="dZ8-nf-QY9" firstAttribute="top" secondItem="ZYq-ju-F4u" secondAttribute="bottom" constant="15" id="iql-eg-f6Z"/>
+                            <constraint firstItem="OaS-BL-0Pi" firstAttribute="top" secondItem="Qlt-0O-vh0" secondAttribute="bottom" constant="15" id="j28-Bu-E8M"/>
+                            <constraint firstItem="dZ8-nf-QY9" firstAttribute="leading" secondItem="Zlv-GR-fgb" secondAttribute="leading" constant="15" id="o5i-EM-sui"/>
+                            <constraint firstItem="Qlt-0O-vh0" firstAttribute="leading" secondItem="Zlv-GR-fgb" secondAttribute="leading" constant="15" id="wgc-XF-QI1"/>
+                            <constraint firstAttribute="trailing" secondItem="yd1-Nb-XTJ" secondAttribute="trailing" constant="15" id="woy-cX-dVh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Blogを作成する" id="8Rs-t9-Y2w">
+                        <barButtonItem key="leftBarButtonItem" title="戻る" id="1h2-d6-jcE">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="tappedBackBtn:" destination="483-ee-7BN" id="dSk-X3-ZYh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentTextView" destination="OaS-BL-0Pi" id="uRU-5T-6PP"/>
+                        <outlet property="titleTextField" destination="yd1-Nb-XTJ" id="EYk-wk-jEE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="glL-ll-HRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2781.5999999999999" y="-428.63568215892059"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XUI-lq-bs9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dwu-Z1-m5M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cBI-i8-ZYU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Qj7-Es-krx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nJx-f2-E7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125.59999999999999" y="-645.42728635682158"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ap8-qd-23B">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Ui-f9-Prg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9hJ-2L-9MZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="483-ee-7BN" kind="relationship" relationship="rootViewController" id="aTY-86-Zm5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hGh-yD-aQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1840.8" y="-429.53523238380814"/>
         </scene>
     </scenes>
 </document>

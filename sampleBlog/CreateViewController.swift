@@ -7,20 +7,48 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CreateViewController: UIViewController {
 
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var contentTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func tappedCreateBlogBtn(_ sender: Any) {
+        
+        
+        if titleTextField.text == "" || contentTextView.text == "" {
+            return
+        }
+        let blog = BlogRealm()
+        blog.title = titleTextField.text!
+        blog.content = contentTextView.text!
+        blog.createdAt = Date()
+        
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.add(blog)
+        }
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tappedBackBtn(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+        
+    }
 
     /*
     // MARK: - Navigation
