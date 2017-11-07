@@ -270,8 +270,6 @@ Realm Browserを入手
 
 realmを探す
 
-大変
-
 https://gist.github.com/gologo13/b9971f2a47150733a937
 
 
