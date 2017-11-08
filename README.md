@@ -272,8 +272,10 @@ realmを探す
 
 https://gist.github.com/gologo13/b9971f2a47150733a937
 
-
-
+-----
+タップして繊維
+ToPViewCTR
+セルをセレクトしたというメソッドをかく
 
 
 
