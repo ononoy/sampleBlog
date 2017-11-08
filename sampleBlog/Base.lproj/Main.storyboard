@@ -57,7 +57,7 @@
         <!--Blogを作成する-->
         <scene sceneID="Tqf-yN-oS5">
             <objects>
-                <viewController id="483-ee-7BN" customClass="CreateViewController" customModule="sampleBlog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateViewController" id="483-ee-7BN" customClass="CreateViewController" customModule="sampleBlog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZYq-ju-F4u"/>
                         <viewControllerLayoutGuide type="bottom" id="MCt-Ld-1uj"/>
@@ -144,6 +144,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contentTextView" destination="OaS-BL-0Pi" id="uRU-5T-6PP"/>
+                        <outlet property="mainBtn" destination="eEX-sC-FHs" id="bAT-yG-5AE"/>
                         <outlet property="titleTextField" destination="yd1-Nb-XTJ" id="EYk-wk-jEE"/>
                     </connections>
                 </viewController>
