@@ -56,6 +56,9 @@ class CreateViewController: UIViewController {
                 updateBlog?.content = contentTextView.text
                 updateBlog?.createdAt = Date()
             }
+            //topViewControllerで登録しておいた通知を発生させる
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "afterUpdate"), object: nil)
+            
             navigationController?.popToRootViewController(animated: true)
 
         } else {

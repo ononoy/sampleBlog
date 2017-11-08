@@ -15,9 +15,45 @@ class TopViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     var dataSource: [BlogRealm]!
     
+    //ここで登録した通知が来たら処理を行う
+    func afterUpdate() {
+        tableView.register(UINib(nibName: "BlogListCell", bundle: nil), forCellReuseIdentifier: "BlogListCell")
+        
+        var realmDataArray = [BlogRealm]()
+        let realm = try! Realm()
+        var sortedBlogRealmData : Results<BlogRealm>
+        //realmから引っ張ってきた全てのデータ ※created_atでソートしてる
+        sortedBlogRealmData = realm.objects(BlogRealm.self).sorted(byKeyPath: "createdAt", ascending: false)
+        
+        var i = 0
+        while i < realm.objects(BlogRealm.self).count {
+            let blog = BlogRealm()
+            blog.title = sortedBlogRealmData[i].title
+            blog.content = sortedBlogRealmData[i].content
+            blog.createdAt = sortedBlogRealmData[i].createdAt
+            realmDataArray.append(blog)
+            i += 1
+        }
+        print(realmDataArray.count)
+        
+        dataSource = realmDataArray
+        
+        tableView.reloadData()
+
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //通知登録
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(afterUpdate),
+                                               name: NSNotification.Name(rawValue: "afterUpdate"),
+                                               object: nil)
+        
+        
         tableView.register(UINib(nibName: "BlogListCell", bundle: nil), forCellReuseIdentifier: "BlogListCell")
        
         var realmDataArray = [BlogRealm]()
