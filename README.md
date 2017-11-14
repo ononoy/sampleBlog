@@ -453,7 +453,9 @@ isFromDetailVC {} updateされたら通知させる処理
 notificationofserverのティフィケーションオブザーバー
 
 条件分岐、realmデータを保持して走らせる、セル１つ１つにrowsection配列の南蛮めをうまくして受け渡し、データを
+
 ーーーー
+
 Deretateデリート
 
 
